@@ -23,13 +23,17 @@ PAM 설정 파일인 `/etc/pam.d/common-password` 파일을 수정하여 비밀�
 
 다음 명령으로 파일을 엽니다.
 
+`password    requisite     pam_pwquality.so retry=3` 이라고 적힌 라인을 찾습니다.  
+이후 `minlen=8` 옵션을 추가합니다.
+
+
 ```bash
 $ sudo vi /etc/pam.d/common-password
 # ...
 password    requisite    pam_pwquality.so retry=3 minlen=8
 ```
 
-`minlen=8` 옵션은 최소 비밀번호 길이를 8자로 설정하는 것입니다. 이를 추가합니다.
+`minlen=8`은 최소 비밀번호 길이를 8자로 설정하는 옵션입니다.
 
 ### 3️⃣ 설정 확인 및 테스트
 
